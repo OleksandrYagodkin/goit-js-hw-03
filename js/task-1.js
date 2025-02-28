@@ -1,9 +1,9 @@
 function slugify(title) {
-  let optimizeTitle = title.toLowerCase().split(" ").join("-");
-  //   return optimizeTitle.join('-');
-  return `mysite.com/posts/${optimizeTitle}`;
+  if (typeof title === "string") {
+    return title.split(" ").join("-").toLocaleLowerCase();
+  }
+  return title;
 }
-
 console.log(slugify("Arrays for beginners")); // "arrays-for-beginners"
 console.log(slugify("English for developer")); // "english-for-developer"
 console.log(slugify("Ten secrets of JavaScript")); // "ten-secrets-of-javascript"
